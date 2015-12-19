@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset	="UTF-8">
+    <meta http-equiv	="X-UA-Compatible" content="IE=edge">
+    <meta name		="viewport" content = "width=device-width, initial-scale= 1.0">
+    <meta name		="description" content="">
+    <meta name		="author" content="Xing Yu">
+
+    <title>Git-Basics</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+  body {
+      position: relative;
+  }
+  .affix {
+      top: 20px;
+  }
+  div.col-lg-9 div {
+      font-size: 28px;
+  }
+  #aaa {}
+  #basics {}
+  #section3 {}
+
+  
+  @media screen and (max-width: 810px) {
+    #aaa, #basics, #section3  {
+        margin-left: 150px;
+    }
+  }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#side" data-offset="15">
+
+<!--navigation-->
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+      		<a class="navbar-brand" href="#"><b>git</b></a>
+    	</div>
+
+ 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 	<ul class="nav navbar-nav">
+		<li><a href="git.html">An Introduction to Git<span class="sr-only"></span></a></li>
+		<li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basics<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="basics.html">Initialize your Git Repository</a></li>
+				<li><a href="basics.html#track">Start Tracking new files</a></li>
+				<li><a href="basics.html#status">Check your status</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="adding.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adding to your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">				
+				<li><a href="adding.html">git add</a></li>
+				<li><a href="adding.html#commit">Committing your changes</a></li>
+				<li><a href="adding.html#review">Reviewing your changes</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Revising your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="revising.html">Revisiting past commits</a></li>
+				<li><a href="revising.html#revert">Reverting your committed changes</a></li>
+				<li><a href="revising.html#reset">Resetting your committed changes</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown"><a href="communicate.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Communicating with other repositories<span class="caret"></span></a>
+		  	<ul class="dropdown-menu">
+				<li><a href="communicate.html">Adding remote repositories</a></li>
+				<li><a href="communicate.html#access">Accessing remote repositories</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown" ><a href="branch.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branches<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="branch.html">What are branches?</a></li>
+				<li><a href="branch.html#merge">Merging your branches</a></li>
+				<li><a href="branch.html#rebase">Integrating changes between branches</a></li>
+				<li><a href="branch.html#stash">Stashing your work</a></li>
+			</ul>
+        	</li>
+		<li><a href="review.html">Review<span class="sr-only"></span></a></li>
+	</ul>
+      	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br>
+
+<div class="container">
+  <div class="row">
+    <nav class="col-lg-3" id="side">
+      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="70">
+	<a href="git.html"><h4>Git: An Introduction</h4></a></br>
+	<a href="#"><h4>Basics</h4></a>
+        <li><a href="#init">Initialize your Git Repository</a></li>
+        <li><a href="#track">Start Tracking new files</a></li>
+        <li><a href="#status">Check your status</a></li></br>
+	<a href="adding.html"><h4>Adding to your repository</h4></a></br>
+	<a href="revising.html"><h4>Revising your repository</h4></a></br>
+	<a href="communicate.html"><h4>Communicating with other </h4><h4>repositories</h4></a></br>
+	<a href="branch.html"><h4>Branches</h4></a></br>
+	<a href="review.html"><h4>Review</h4></a>
+
+      </ul>
+    </nav>
+    <div class="col-lg-9">
+      <h2>Basics</h2>
+  
+
+      <div id="init"> 
+        <h3>Initialize your Git Repository</h3>
+        <h5>To start tracking a project in Git, type <code>git init</code> within the project&apos;s directory. This initializes a repository which would contain all your files.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git init</pre>
+      </div></br>
+<div id="track">
+        <h3>Start Tracking new files</h3>
+        <h5>Then, to start tracking a new file in your repository, use <code>git add</code>. Suppose you want to start tracking a file named text.txt, you can enter </h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git add text.txt</pre>
+	<h5>Now, your file has been tracked and staged</h5>
+	<h5>You are also able to use the asterik sign (*) to add multiple files of the same file type. For instance, to add all text files (.txt), you can enter </h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git add *.txt</pre>
+</div></br>
+<div id="status">
+        <h3>Check your status</h3>
+        <h5>You can use <code>git status</code> to view the state of your project at any point. </h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git add text.txt</pre>
+	<h5>This would allow you to determine the state of every file within the repository.</h5>
+	<h5></h5>
+	<h5>This is how your status will look after you initialize your repository.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git status
+<code>On branch master</code>
+<code>nothing to commit, working directory clean</code>	</pre>
+	<h5>And this is how your status will look like if you add a new file (text.txt) to your repository. </h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git status
+<code>On branch master</code>
+<code>Untracked files: </code>
+<code>  (Use &ldquo;git add &lt;file&gt;...&rdquo; to include in what will be committed)</code>
+<code></code>
+<code style="color:red;">  text.txt</code>
+<code></code>
+<code>nothing added to commit but untracked files present (use &ldquo;git add&rdquo; to track)</code></pre>
+</br><h6></h6>
+</div>
+</div>        
+    </div>
+  </div>
+</div>
+<h3 class="text-center">Project at <a href="http://fossasia.org">FOSSASIA </a> <a href="https://codein.withgoogle.com/">Google Code-In 2015</a>!</h3>
+</body>
+</html>     
