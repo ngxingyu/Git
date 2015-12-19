@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset	="UTF-8">
+    <meta http-equiv	="X-UA-Compatible" content="IE=edge">
+    <meta name		="viewport" content = "width=device-width, initial-scale= 1.0">
+    <meta name		="description" content="">
+    <meta name		="author" content="Xing Yu">
+
+    <title>Revising your repository</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+  body {
+      position: relative;
+  }
+  .affix {
+      top: 20px;
+  }
+  div.col-lg-9 div {
+      font-size: 28px;
+  }
+  #gitadd {}
+  #commit {}
+  #review {}
+
+
+  
+  @media screen and (max-width: 810px) {
+    #gitadd, #commit , #review {
+        margin-left: 150px;
+    }
+  }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#side" data-offset="15">
+
+<!--navigation-->
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+      		<a class="navbar-brand" href="#"><b>git</b></a>
+    	</div>
+
+ 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 	<ul class="nav navbar-nav">
+		<li><a href="git.html">An Introduction to Git<span class="sr-only"></span></a></li>
+		<li class="dropdown" ><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basics<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="basics.html">Initialize your Git Repository</a></li>
+				<li><a href="basics.html#track">Start Tracking new files</a></li>
+				<li><a href="basics.html#status">Check your status</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="adding.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adding to your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="adding.html">git add</a></li>
+				<li><a href="adding.html#commit">Committing your changes</a></li>
+				<li><a href="adding.html#review">Reviewing your changes</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown active" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Revising your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Revisiting past commits</a></li>
+				<li><a href="#revert">Reverting your committed changes</a></li>
+				<li><a href="#reset">Resetting your committed changes</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown"><a href="communicate.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Communicating with other repositories<span class="caret"></span></a>
+		  	<ul class="dropdown-menu">
+				<li><a href="communicate.html">Adding remote repositories</a></li>
+				<li><a href="communicate.html#access">Accessing remote repositories</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown" ><a href="branch.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branches<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="branch.html">What are branches?</a></li>
+				<li><a href="branch.html#merge">Merging your branches</a></li>
+				<li><a href="branch.html#rebase">Integrating changes between branches</a></li>
+				<li><a href="branch.html#stash">Stashing your work</a></li>
+			</ul>
+        	</li>
+		<li><a href="review.html">Review<span class="sr-only"></span></a></li>
+
+
+	</ul>
+      	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br>
+
+<div class="container">
+  <div class="row">
+    <nav class="col-lg-3" id="side">
+      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="70">
+	<a href="git.html"><h4>Git: An Introduction</h4></a></br>
+	<a href="basics.html"><h4>Basics</h4></a></br>
+	<a href="adding.html"><h4>Adding to your repository</h4></a></br>
+	<a href="#"><h4>Revising your repository</h4></a>
+        <li><a href="#revisit">Revisiting past commits</a></li>
+        <li><a href="#revert">Reverting your committed changes</a></li>
+        <li><a href="#reset">Resetting your committed changes</a></li></br>
+	<a href="communicate.html"><h4>Communicating with other </h4><h4>repositories</h4></a></br>
+	<a href="branch.html"><h4>Branches</h4></a></br>
+	<a href="review.html"><h4>Review</h4></a>
+
+      </ul>
+    </nav>
+    <div class="col-lg-9">
+      <h2>Revising your repository</h2>
+  
+
+      <div id="revisit"> 
+        <h3>Revisiting past commits</h3>
+	<h5>This command allows you check out old versions of files, view previous states of the project, or check out various branches of the project with the commit&apos;s ID. </h5>
+	<h5> </h5>
+	<h5>The ID of the commit can be obtained using the <code>git log --oneline</code> command.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git log --oneline</pre>
+	<h5> </h5>
+	<h5> </h5>
+	<h5>For now, we will look at the first two uses of the checkout command.</h5>
+	<h5></h5>
+	<h4><u>Individual files</u></h4>
+	<h5>Firstly, suppose you want to check out an old version of a file. Use <code>git checkout &lt;commit ID&gt; &lt;filename&gt;</code>. In this case, I want to view the state of my file text.txt at a certain commit: 1kjh23k.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git checkout 1kjh23k text.txt</pre>
+	<h5>Now, when you view the file text.txt, it will be in the state of the 1kjh23k commit. </h5>
+	<h5></h5>
+	<h5>If you want to keep this version of the file, you can use the <code>git commit</code> command. </h5><h5>Otherwise, if you do not want to keep that version of the file, just use <code>git checkout HEAD &lt;filename&gt;</code>. In the case of text.txt,</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git checkout HEAD text.txt</pre>
+	<h5></h5>
+	<h4><u>Entire commits</u></h4>
+	<h5>If you want to revisit your project at a previous commit: 1kjh23k, you can use the command <code>git checkout &lt;commit ID&gt;</code>.</h5>
+	<h5>This reverts the entire working directory to its 1kjh23k commit state, allowing you to view, edit, or even run files without losing the current project state.</h5>
+	<h5>To return to the current state of the project:</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git checkout master</pre>
+
+      </div></br>
+
+<div id="revert">
+        <h3>Reverting your committed changes</h3>     
+        <h5>If you need to undo a commit, Git would append a new commit with the reverted changes specified by the commit. This is done with the help of <code>git revert</code></h5>
+	<h5>To revert the changes made by the last active commit, use the following command:</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git revert HEAD</pre>
+	<h5></h5>
+
+	<h5>In addition, you can revert the changes of any commit by specifying how many commits away it is from the latest commit. For instance, to revert to the 2nd last commit made:</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git revert HEAD~1</pre>
+
+
+</div></br>
+
+<div id="reset">
+        <h3>Resetting your committed changes</h3>     
+        <h5>You can easily unstage files, reset the staging area, remove all uncomitted changes, and even remove committed files with the <code>git reset</code> command.</h5></br>
+	<h4>Unstage single files</h4>
+	<h5>To unstage a specific files, you can simply use the <code>git reset &lt;filename&gt;</code> command. This would leave every other part of the working directory unchanged.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git reset text.txt</pre></br>
+	<h4>Unstage all files</h4>
+	<h5>To unstage all staged files, just use the command <code>git reset</code>. This would also leave every other part of the working directory unchanged.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git reset</pre></br>
+	<h4>Remove all uncommitted changes</h4>
+	<h5>To unstage all staged files and remove all uncommitted changes, add the &lsquo;--hard&rsquo; flag after the <code>git reset</code> command. This would remove all uncommitted changes permanently.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git reset --hard</pre></br>
+	<h4>&ldquo;Un-commit&rdquo; selected files</h4>
+	<h5>The command <code>git reset &lt;commit ID&gt;</code> will shift all changes made after that commit to the working directory, allowing you to re-commit all of them.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git reset 1kjh23k</pre></br>
+	<h5></h5>
+	<h4>Removing committed files</h4>
+	<h5>The command <code>git reset --hard &lt;commit ID&gt;</code> will remove all uncommitted changes and commits made after that specified commit permanently.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git reset --hard 1kjh23k</pre></br>
+	<h5></h5>
+	<h4>Removing untracked files</h4>
+	<h5>The command <code>git clean</code> will remove all untracked files.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git clean</pre></br>
+	<h5></h5>
+</div></br>    
+
+
+    </div>
+  </div>
+</div>
+<h3 class="text-center">Project at <a href="http://fossasia.org">FOSSASIA </a> <a href="https://codein.withgoogle.com/">Google Code-In 2015</a>!</h3>
+</body>
+</html>     
