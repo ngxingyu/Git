@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset	="UTF-8">
+    <meta http-equiv	="X-UA-Compatible" content="IE=edge">
+    <meta name		="viewport" content = "width=device-width, initial-scale= 1.0">
+    <meta name		="description" content="">
+    <meta name		="author" content="Xing Yu">
+
+    <title>Branches</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+  body {
+      position: relative;
+  }
+  .affix {
+      top: 20px;
+  }
+  div.col-lg-9 div {
+      font-size: 28px;
+  }
+  #gitadd {}
+  #commit {}
+  #review {}
+
+
+  
+  @media screen and (max-width: 810px) {
+    #gitadd, #commit , #review {
+        margin-left: 150px;
+    }
+  }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#side" data-offset="15">
+
+<!--navigation-->
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+      		<a class="navbar-brand" href="#"><b>git</b></a>
+    	</div>
+
+ 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 	<ul class="nav navbar-nav">
+		<li><a href="git.html">An Introduction to Git<span class="sr-only"></span></a></li>
+		<li class="dropdown" ><a href="basics.html" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basics<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="basics.html">Initialize your Git Repository</a></li>
+				<li><a href="basics.html#track">Start Tracking new files</a></li>
+				<li><a href="basics.html#status">Check your status</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="adding.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adding to your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="adding.html">git add</a></li>
+				<li><a href="adding.html#commit">Committing your changes</a></li>
+				<li><a href="adding.html#review">Reviewing your changes</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Revising your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="revising.html">Revisiting past commits</a></li>
+				<li><a href="revising.html#revert">Reverting your committed changes</a></li>
+				<li><a href="revising.html#reset">Resetting your committed changes</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown"><a href="communicate.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Communicating with other repositories<span class="caret"></span></a>
+		  	<ul class="dropdown-menu">
+				<li><a href="communicate.html">Adding remote repositories</a></li>
+				<li><a href="communicate.html#access">Accessing remote repositories</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown active" ><a href="branch.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branches<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">What are branches?</a></li>
+				<li><a href="#merge">Merging your branches</a></li>
+				<li><a href="#rebase">Integrating changes between branches</a></li>
+				<li><a href="#stash">Stashing your work</a></li>
+			</ul>
+        	</li>
+		<li><a href="review.html">Review<span class="sr-only"></span></a></li>
+	</ul>
+      	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br>
+
+<div class="container">
+  <div class="row">
+    <nav class="col-lg-3" id="side">
+      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="70">
+	<a href="git.html"><h4>Git: An Introduction</h4></a></br>
+	<a href="basics.html"><h4>Basics</h4></a></br>
+	<a href="adding.html"><h4>Adding to your repository</h4></a></br>
+	<a href="revising.html"><h4>Revising your repository</h4></a></br>
+	<a href="communicate.html"><h4>Communicating with other </h4><h4>repositories</h4></a></br>
+	<a href="#"><h4>Branches</h4></a>
+        <li><a href="#branches">What are branches?</a></li>
+        <li><a href="#merge">Merging your branches</a></li>
+        <li><a href="#rebase">Integrating changes between branches</a></li>
+        <li><a href="#stash">Stashing your work</a></li></br>
+	<a href="review.html"><h4>Review</h4></a>
+      </ul>
+    </nav>
+    <div class="col-lg-9">
+      <h2>Branches</h2>
+
+      <div id="branches"> 
+        <h3>What are branches?</h3>
+        <h5>Branches are lines of development which are independent of the main line. </h5>
+	<h5>These branches provide a platform where you can modifications or commits without affecting the original line of development.</h5>
+	<h5>When you use the <code>git init</code> command, the master branch will be created automatically.</h5>
+	<h5></h5>
+	<h5>To create a new branch for you to work on, use <code>git branch &lt;branch name&gt;</code>. If I want to have a new branch called 'test'</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git branch test</pre>
+
+	<h5>Use the command <code>git branch</code> to view all the branches present in your repository. </h5>
+	<h5>Then, to start work on the new branch, you have to <a href="revising.html">checkout</a> the branch.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git branch test
+<code></code>
+<code style="color: #009900;">></code> git branch
+<code>master</code>
+<code>test</code>
+<code></code>
+<code style="color: #009900;">></code> git checkout test</pre>
+</br>
+<h5>Rather than using two steps to create and visit a new branch, you can make use of a single command: <code>git checkout -b &lt;branch name&gt;</code> to create and visit a new branch.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git checkout -b test</pre>
+      </div></br>
+
+<div id="merge">
+        <h3>Merging your branches</h3>
+        <h5>After you have made your modifications in the new branch and feel happy with it, you would want to save you changes. </h5>
+	<h5>To do so, you can switch back to your current branch, and merge the changes from the new modified branch to the current branch. Just use <code>git merge &lt;new branch name&gt;</code></h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git checkout master
+<code style="color: #009900;">></code> git merge test</code></pre>
+	<h5>This would make the master branch identical to the test branch. </h5></br>
+	<h5>Now that you have successfully made your changes to the master branch, the test branch is unneccessary, and you can remove it with <code>git branch -d &lt;branch name&gt;</code>.	</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git branch -d test</pre>
+</div></br>
+<div id="rebase">
+	<h3>Integrating changes between branches</h3>
+	<h5>Another way you can integrate the changes you made from the test branch to your master branch is through <code>git rebase</code>.</h5>
+	<h5>Since the test branch is essentially a copy of the master branch, you can take the changes you make to the test branch, and apply it to the master branch.</h5>
+	<h5>You do this by checking out the new branch, then rebase any changes made to the new branch onto the current branch. Then, return to the current branch, and merge both branches.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git checkout test
+<code style="color: #009900;">></code> git rebase master
+<code style="color: #009900;">></code> git checkout master
+<code style="color: #009900;">></code> git merge test</pre>
+	<h5>Now, you have a history in which all changes you actually made to the test branch is made to the master branch, giving you a linear history, instead of a branched one.</h5>
+</div></br>        
+
+<div id="stash">
+        <h3>Stashing your work</h3>
+        <h5>Suppose you are half-way through working on a section of your project, and you need to visit another branch, but do not want to commit your unfinished changes.</h5>
+        <h5>You can make use of <code>git stash</code> to save your current working state, allowing you to do whatever you want. Just enter the following command</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git stash</pre>
+	<h5>This would save your changes. To view all the stashes you have, use <code>git stash list</code>, and it will return a list of stashes.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git stash apply
+<code>stash@{0}: WIP on master: ...</code>
+<code>stash@{1}: WIP on master: ...</code></pre></br>
+	<h5>To reapply the last stash, just use <code>git stash apply</code>. Else, for any other older stashes, use <code>git stash apply stash@{1}</code> etc...</h5>
+</div></br>
+	
+    </div>
+  </div>
+</div>
+<h3 class="text-center">Project at <a href="http://fossasia.org">FOSSASIA </a> <a href="https://codein.withgoogle.com/">Google Code-In 2015</a>!</h3>
+</body>
+</html>     
