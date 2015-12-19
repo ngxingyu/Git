@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset	="UTF-8">
+    <meta http-equiv	="X-UA-Compatible" content="IE=edge">
+    <meta name		="viewport" content = "width=device-width, initial-scale= 1.0">
+    <meta name		="description" content="">
+    <meta name		="author" content="Xing Yu">
+
+    <title>An Introduction to Git</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+  body {
+      position: relative;
+  }
+  .affix {
+      top: 20px;
+  }
+  div.col-lg-9 div {
+      font-size: 28px;
+  }
+
+  </style>
+</head>
+<body>
+
+<!--navigation-->
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+      		<a class="navbar-brand" href="#"><b>git</b></a>
+    	</div>
+
+ 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 	<ul class="nav navbar-nav">
+		<li><a href="git.html">An Introduction to Git<span class="sr-only"></span></a></li>
+		<li class="dropdown" ><a href="basics.html" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basics<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="basics.html#">Initialize your Git Repository</a></li>
+				<li><a href="basics.html#track">Start Tracking new files</a></li>
+				<li><a href="basics.html#status">Check your status</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="adding.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adding to your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="adding.html">git add</a></li>
+				<li><a href="adding.html#commit">Committing your changes</a></li>
+				<li><a href="adding.html#review">Reviewing your changes</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Revising your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="revising.html">Revisiting past commits</a></li>
+				<li><a href="revising.html#revert">Reverting your committed changes</a></li>
+				<li><a href="revising.html#reset">Resetting your committed changes</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown"><a href="communicate.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Communicating with other repositories<span class="caret"></span></a>
+		  	<ul class="dropdown-menu">
+				<li><a href="communicate.html">Adding remote repositories</a></li>
+				<li><a href="communicate.html#access">Accessing remote repositories</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown" ><a href="branch.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branches<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="branch.html">What are branches?</a></li>
+				<li><a href="branch.html#merge">Merging your branches</a></li>
+				<li><a href="branch.html#rebase">Integrating changes between branches</a></li>
+				<li><a href="branch.html#stash">Stashing your work</a></li>
+			</ul>
+        	</li>
+		<li class="active"><a href="#">Review<span class="sr-only"></span></a></li>
+
+	</ul>
+      	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br>
+
+<div class="container">
+  <div class="row">
+    <nav class="col-lg-3" id="side">
+      <ul class="nav nav-pills nav-stacked">
+	<li><a href="git.html"><h4>Git: An Introduction</h4></a></li>
+	<li><a href="basics.html"><h4>Basics</h4></a></li>
+	<li><a href="adding.html"><h4>Adding to your repository</h4></a></li>
+	<li><a href="revising.html"><h4>Revising your repository</h4></a></li>
+	<li><a href="communicate.html"><h4>Communicating with other </h4><h4>repositories</h4></a></li>
+	<li><a href="branch.html"><h4>Branches</h4></a></li>
+	<li class="active"><a href="#"><h4>Review</h4></a></li>
+      </ul>
+    </nav>
+    <div class="col-lg-9">
+      <h2>Git: Review</h2>
+      <div id="what">    
+        <h3>Review</h3>
+        <h5>Here is a list of codes that were mentioned in this site.</h5>
+	<h5><code><a href="basics.html">git init</a></code></h5>
+	<h5><code><a href="basics.html#track">git add</a></code></h5>
+	<h5><code><a href="basics.html#status">git status</a></code></h5>
+	<h5><code><a href="adding.html#commit">git commit</a></code></h5>
+	<h5><code><a href="adding.html#review">git log</a></code></h5>
+	<h5><code><a href="revising.html#revisit">git checkout</a></code></h5>
+	<h5><code><a href="revising.html#revert">git revert</a></code></h5>
+	<h5><code><a href="revising.html#reset">git reset</a></code></h5>
+	<h5><code><a href="revising.html#reset">git clean</a></code></h5>
+	<h5><code><a href="communicate.html#add">git remote</a></code></h5>
+	<h5><code><a href="communicate.html#access">git fetch</a></code></h5>
+	<h5><code><a href="communicate.html#access">git pull</a></code></h5>
+	<h5><code><a href="communicate.html#access">git push</a></code></h5>
+	<h5><code><a href="branch.html">git branch</a></code></h5>
+	<h5><code><a href="branch.html#merge">git merge</a></code></h5>
+	<h5><code><a href="branch.html#rebase">git rebase</a></code></h5>
+	<h5><code><a href="branch.html#stash">git stash</a></code></h5>
+        
+      </div>
+<nav>
+  <ul class="pager">
+    <li class="next"><a href="basics.html">Get Started! <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>
+    </div>
+  </div>
+</div>
+<h3 class="text-center">Project at <a href="http://fossasia.org">FOSSASIA </a> <a href="https://codein.withgoogle.com/">Google Code-In 2015</a>!</h3>
+</body>
+</html>     
