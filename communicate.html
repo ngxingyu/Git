@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset	="UTF-8">
+    <meta http-equiv	="X-UA-Compatible" content="IE=edge">
+    <meta name		="viewport" content = "width=device-width, initial-scale= 1.0">
+    <meta name		="description" content="">
+    <meta name		="author" content="Xing Yu">
+
+    <title>Communicating with other repositories</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style>
+  body {
+      position: relative;
+  }
+  .affix {
+      top: 20px;
+  }
+  div.col-lg-9 div {
+      font-size: 28px;
+  }
+  #gitadd {}
+  #commit {}
+  #review {}
+
+
+  
+  @media screen and (max-width: 810px) {
+    #gitadd, #commit , #review {
+        margin-left: 150px;
+    }
+  }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#side" data-offset="15">
+
+<!--navigation-->
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+      		<a class="navbar-brand" href="#"><b>git</b></a>
+    	</div>
+
+ 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 	<ul class="nav navbar-nav">
+		<li><a href="git.html">An Introduction to Git<span class="sr-only"></span></a></li>
+		<li class="dropdown" ><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basics<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="basics.html">Initialize your Git Repository</a></li>
+				<li><a href="basics.html#track">Start Tracking new files</a></li>
+				<li><a href="basics.html#status">Check your status</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="adding.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adding to your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="adding.html">git add</a></li>
+				<li><a href="adding.html#commit">Committing your changes</a></li>
+				<li><a href="adding.html#review">Reviewing your changes</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="revising.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Revising your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="revising.html">Revisiting past commits</a></li>
+				<li><a href="revising.html#revert">Reverting committed changes</a></li>
+				<li><a href="revising.html#reset">Reviewing your changes</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Communicating with other repositories<span class="caret"></span></a>
+		  	<ul class="dropdown-menu">
+				<li><a href="#">Adding remote repositories</a></li>
+				<li><a href="#access">Accessing remote repositories</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown" ><a href="branch.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branches<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="branch.html">What are branches?</a></li>
+				<li><a href="branch.html#merge">Merging your branches</a></li>
+				<li><a href="branch.html#rebase">Integrating changes between branches</a></li>
+				<li><a href="branch.html#stash">Stashing your work</a></li>
+			</ul>
+        	</li>
+		<li><a href="review.html">Review<span class="sr-only"></span></a></li>
+
+	</ul>
+      	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br>
+
+<div class="container">
+  <div class="row">
+    <nav class="col-lg-3" id="side">
+      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="70">
+	<a href="git.html"><h4>Git: An Introduction</h4></a></br>
+	<a href="basics.html"><h4>Basics</h4></a></br>
+	<a href="adding.html"><h4>Adding to your repository</h4></a></br>
+	<a href="revising.html"><h4>Revising your repository</h4></a></br>
+	<a href="#"><h4>Communicating with other</h4><h4> repositories</h4></a>
+        <li><a href="#add">Adding remote repositories</a></li>
+        <li><a href="#access">Accessing remote repositories</a></li></br>
+	<a href="branch.html"><h4>Branches</h4></a></br>
+	<a href="review.html"><h4>Review</h4></a></br>
+
+      </ul>
+    </nav>
+    <div class="col-lg-9">
+      <h2>Communicating with other repositories</h2>
+  
+
+      <div id="add"> 
+        <h3>Adding remote repositories</h3>
+        <h5>To collaborate with others on your project, you make use of remote repositories hosted on networks.</h5>
+	<h5>To start, you have to add a remote repository. You can do so using the following command: <code>git remote add &lt;name&gt; &lt;url&gt;</code></h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git remote add abc https://www.website.com/tomandjerry/repo.git </pre>
+<h5></h5>
+	<h5>Then, now that you have added a remote repository, you can view the remote repositories you have connected with by entering <code>git remote</code>.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git remote
+<code style="color:grey">abc</code></pre>
+	<h5>You can add a '-v' flag to the above command if you also want to view the URLs of the remote repositories.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git remote -v
+<code style="color:grey">abc https://www.website.com/tomandjerry/repo.git</code></pre>
+<h5></h5></br>
+	<h5>If you want to disconnect any remote repositories, use the command <code>git remote rm &lt;name&gt;</code>.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git remote rm abc</pre>
+
+	<h5>To rename any remote repositories, use <code>git remote rename &lt;old name&gt; &lt;new name&gt;</code>.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git remote rename abc cba</pre>
+
+</div>
+
+<div id="access">
+        <h3>Accessing remote repositories</h3>
+        <h5>Now that you have added remote repositories, you will want to check it out. You can use <code>git fetch &lt;remote name&gt;</code> to obtain all the commits and files from the repository.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git fetch cba</pre>
+        <h5>To fetch data from a specific branch in the repository, use <code>git fetch &lt;remote name&gt; &lt;branch name&gt;</code>.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git fetch cba tom</pre>
+	<h5> Now, you are able to view the files you fetched on a remote branch. You can review commits before adding them to your local repository. To merge the remote branch with your current branch, use <code>git merge</code>. </h5>
+	<h5>Alternatively, you can use <code>git pull &lt;remote name&gt; &lt;branch name&gt;</code> to fetch and merge files and commits from remote repositories</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git pull cba tom</pre></br>
+
+	<h5>The opposite of <code>git fetch</code> is <code>git push</code>. As you can guess, this command allows you to transfer commits from your local repository to other remote repositories.</h5>
+        <h5>To push data to a specific branch in the repository, use <code>git push &lt;remote name&gt; &lt;branch name&gt;</code>.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git push xyz mybranch</pre>
+        <h5>To push all your branches to the remote repository, use <code>git push &lt;remote name&gt; --all</code>.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git push xyz --all</pre>
+
+</div></br>
+
+
+
+    </div>
+  </div>
+</div>
+<h3 class="text-center">Project at <a href="http://fossasia.org">FOSSASIA </a> <a href="https://codein.withgoogle.com/">Google Code-In 2015</a>!</h3>
+</body>
+</html>     
