@@ -7,45 +7,65 @@
     <meta name		="description" content="">
     <meta name		="author" content="Xing Yu">
 
-    <title>Revising your repository</title>
+    <title>An Introduction to Git</title>
 
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <style>
-  body {
-      position: relative;
-  }
+body {
+  font-family: Ubuntu;
+  position: relative;
+  padding-top: 10px;
+
+}
+.xingyu {
+	padding-top:50px!important;
+	padding-bottom:50px!important;
+}
+footer {
+  position: relative;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 150px; 
+  background-color: grey;
+  color: white;
+}
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid grey;
+
+    background-color:black;
+    colour: white;
+}
   .affix {
       top: 20px;
   }
   div.col-lg-9 div {
       font-size: 28px;
   }
-  #gitadd {}
-  #commit {}
-  #review {}
-
-
-  
-  @media screen and (max-width: 810px) {
-    #gitadd, #commit , #review {
-        margin-left: 150px;
-    }
-  }
   </style>
 </head>
-<body data-spy="scroll" data-target="#side" data-offset="15">
-
+<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="30">
 <!--navigation-->
- <nav class="navbar navbar-default">
+ <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
   	<div class="navbar-header">
+  		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
+                    <span class="sr-only">Toggle navigation</span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                </button>
       		<a class="navbar-brand" href="#"><b>git</b></a>
     	</div>
-
  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
  	<ul class="nav navbar-nav">
 		<li><a href="git.html">An Introduction to Git<span class="sr-only"></span></a></li>
@@ -65,9 +85,9 @@
         	</li>
 		<li class="dropdown active" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Revising your repository<span class="caret"></span></a>
 			<ul class="dropdown-menu">
-				<li><a href="#">Revisiting past commits</a></li>
-				<li><a href="#revert">Reverting your committed changes</a></li>
-				<li><a href="#reset">Resetting your committed changes</a></li>
+				<li><a data-toggle="collapse" data-target=".navbar-collapse" href="#revisit">Revisiting past commits</a></li>
+				<li><a data-toggle="collapse" data-target=".navbar-collapse" href="#revert">Reverting your committed changes</a></li>
+				<li><a data-toggle="collapse" data-target=".navbar-collapse" href="#reset">Resetting your committed changes</a></li>
 			</ul>
         	</li>
 
@@ -96,29 +116,9 @@
 <br>
 
 <div class="container">
-  <div class="row">
-    <nav class="col-lg-3" id="side">
-      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="70">
-	<a href="git.html"><h4>Git: An Introduction</h4></a></br>
-	<a href="basics.html"><h4>Basics</h4></a></br>
-	<a href="adding.html"><h4>Adding to your repository</h4></a></br>
-	<a href="#"><h4>Revising your repository</h4></a>
-        <li><a href="#revisit">Revisiting past commits</a></li>
-        <li><a href="#revert">Reverting your committed changes</a></li>
-        <li><a href="#reset">Resetting your committed changes</a></li></br>
-	<a href="communicate.html"><h4>Communicating with other </h4><h4>repositories</h4></a></br>
-	<a href="branch.html"><h4>Branches</h4></a></br>
-	<a href="review.html"><h4>Review</h4></a></br>
-	<a href="credits.html"><h4>Credits</h4></a>
-
-      </ul>
-    </nav>
-    <div class="col-lg-9">
-      <h2>Revising your repository</h2>
-  
-
+      <h2 class="xingyu">Revising your repository</h2>
       <div id="revisit"> 
-        <h3>Revisiting past commits</h3>
+        <h3 class="xingyu">Revisiting past commits</h3>
 	<h5>This command allows you check out old versions of files, view previous states of the project, or check out various branches of the project with the commit&apos;s ID. </h5>
 	<h5> </h5>
 	<h5>The ID of the commit can be obtained using the <code>git log --oneline</code> command.</h5>
@@ -144,7 +144,7 @@
       </div></br>
 
 <div id="revert">
-        <h3>Reverting your committed changes</h3>     
+        <h3 class="xingyu">Reverting your committed changes</h3>     
         <h5>If you need to undo a commit, Git would append a new commit with the reverted changes specified by the commit. This is done with the help of <code>git revert</code></h5>
 	<h5>To revert the changes made by the last active commit, use the following command:</h5>
 	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git revert HEAD</pre>
@@ -157,7 +157,7 @@
 </div></br>
 
 <div id="reset">
-        <h3>Resetting your committed changes</h3>     
+        <h3 class="xingyu">Resetting your committed changes</h3>     
         <h5>You can easily unstage files, reset the staging area, remove all uncomitted changes, and even remove committed files with the <code>git reset</code> command.</h5></br>
 	<h4>Unstage single files</h4>
 	<h5>To unstage a specific files, you can simply use the <code>git reset &lt;filename&gt;</code> command. This would leave every other part of the working directory unchanged.</h5>
@@ -186,6 +186,20 @@
     </div>
   </div>
 </div>
-<h3 class="text-center">Project at <a href="http://fossasia.org">FOSSASIA </a> <a href="https://codein.withgoogle.com/">Google Code-In 2015</a>!</h3>
+	<footer role="contentinfo">
+ <div id="footer" class="container">
+<center>
+<ul class="bs-docs-footer-links">
+<li><a href="https://twitter.com/ng_xingyu"> <i class="fa fa-twitter-square fa-3x"></i> </a> <a href="https://facebook.com/xingyu00"><i class="fa fa-facebook-square fa-3x"></i></a><a href="https://www.instagram.com/ngxingyu">  <i class="fa fa-instagram fa-3x"></i></a><a href="https://github.com/ngxingyu/"> <i class="fa fa-github-square fa-3x"></i> </a><a href="https://ngxingyu.github.io/xingyu/xingyu.html"> <i class="fa fa-link fa-3x"></i> </a></li><li><a href="mailto:ng.xingyu@dhs.sg" target="_top">ng.xingyu@dhs.sg</a>
+</ul>	
+ <p>Designed and built by ngxingyu </p> 
+ </br>
+</center>
+ 
+
+
+
+</div>
+</footer>
 </body>
 </html>     
