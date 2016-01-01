@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset	="UTF-8">
+    <meta http-equiv	="X-UA-Compatible" content="IE=edge">
+    <meta name		="viewport" content = "width=device-width, initial-scale= 1.0">
+    <meta name		="description" content="">
+    <meta name		="author" content="Xing Yu">
+
+    <title>An Introduction to Git</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Ubuntu;
+  position: relative;
+  padding-top: 10px;
+
+}
+.xingyu {
+	padding-top:50px!important;
+	padding-bottom:50px!important;
+}
+footer {
+  position: relative;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 150px; 
+  background-color: grey;
+  color: white;
+}
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid grey;
+
+    background-color:black;
+    colour: white;
+}
+  .affix {
+      top: 20px;
+  }
+  div.col-lg-9 div {
+      font-size: 28px;
+  }
+  </style>
+</head>
+<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="30">
+<!--navigation-->
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+  	<div class="navbar-header">
+  		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
+                    <span class="sr-only">Toggle navigation</span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                </button>
+      		<a class="navbar-brand" href="#"><b>git</b></a>
+    	</div>
+
+ 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ 	<ul class="nav navbar-nav">
+		<li><a href="git.html">An Introduction to Git<span class="sr-only"></span></a></li>
+		<li class="dropdown" ><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basics<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="basics.html#init">Initialize your Git Repository</a></li>
+				<li><a href="basics.html#track">Start Tracking new files</a></li>
+				<li><a href="basics.html#status">Check your status</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown active" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adding to your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a data-toggle="collapse" data-target=".navbar-collapse" href="#gitadd">git add</a></li>
+				<li><a data-toggle="collapse" data-target=".navbar-collapse" href="#commit">Committing your changes</a></li>
+				<li><a data-toggle="collapse" data-target=".navbar-collapse" href="#review">Reviewing your changes</a></li>
+			</ul>
+        	</li>
+		<li class="dropdown" ><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Revising your repository<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="revising.html#revisit">Revisiting past commits</a></li>
+				<li><a href="revising.html#revert">Reverting your committed changes</a></li>
+				<li><a href="revising.html#reset">Resetting your committed changes</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown"><a href="communicate.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Communicating with other repositories<span class="caret"></span></a>
+		  	<ul class="dropdown-menu">
+				<li><a href="communicate.html#add">Adding remote repositories</a></li>
+				<li><a href="communicate.html#access">Accessing remote repositories</a></li>
+			</ul>
+        	</li>
+
+		<li class="dropdown" ><a href="branch.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Branches<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="branch.html">What are branches?</a></li>
+				<li><a href="branch.html#merge">Merging your branches</a></li>
+				<li><a href="branch.html#rebase">Integrating changes between branches</a></li>
+				<li><a href="branch.html#stash">Stashing your work</a></li>
+			</ul>
+        	</li>
+		<li><a href="review.html">Review<span class="sr-only"></span></a></li>
+		<li><a href="credits.html">Credits<span class="sr-only"></span></a></li>
+	</ul>
+      	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br>
+
+<div class="container">
+      <h2 class="xingyu">Adding to your repository</h2>
+  
+
+      <div id="gitadd"> 
+        <h3 class="xingyu"><code>git add</h3></code>
+        <h5>The command <code>git add</code> has multiple purposes. </h5>
+<h5>As mentioned <a href="basics.html#track">earlier</a>, <code>git add</code> can be used to start tracking new files. In addition to that, <code>git add</code> has other purposes, including staging files. </h5><h5>Suppose you modify the text.txt file that is already tracked, <code>git status</code> will return</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git status
+<code>On branch master</code>
+<code>Changes to be committed:</code>
+<code>  (use &ldquo;git add &lt;file&gt;...&rdquo; to unstage)</code>
+<code></code>
+<code style="color:#009900;">    new file:  text.txt</code>
+<code></code></pre>
+	<h5>Use the command <code>git add</code> to stage the latest version of the file in question (in this case, text.txt)</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git add text.txt</pre>
+      </div></br>
+
+<div id="commit">
+        <h3 class="xingyu">Committing your changes</h3>
+        <h5>Now that you have staged your modified files, <code>git commit</code> will allow you to commit these changes. </h5>
+	<h5>The default <code>git commit</code> command will launch a text editor in which you can input your custom commit message. </h5><h5>Alternatively, you can add your commit message inline, with the following command</h5>
+	<h5>The commit message does not have any formatting constraints, but it should provide a concise description of the changes made.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git commit -m "Add your commit message here"</code>
+<code></code>
+<code>[master 1kjh23k] Add your commit message here</code>
+<code>1 file changed, 1 insertions(+)</code>
+<code>create mode 100644 text.txt</code></pre></br>
+<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git commit -a -m "message"</pre>
+<h5>You are also able to commit any changes present by adding &lsquo;-a&rsquo;. This achieves the same effect as staging and committing all modified files.</h5> 
+
+</div></br>
+<div id="review">
+	<h3 class="xingyu">Reviewing your changes</h3>
+	<h5>Now, your file has been committed. You can check the status of your files with <code>git status</code> as mentioned earlier. To view the history of all the commits you made over time, make use of <code>git log</code>. This will provide you with the entire list of commits you made, along with its commit message, and timestamp.</h5>
+	<h5>Here is an example of the <code>git log</code> command.</h5>
+	<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git log
+<code>commit 1kjh23k598sdg73nth359nxdhfne8e8g7234h223</code>
+<code>Author: Xing Yu Ng &lt;ng.xingyu@dhs.sg&gt;</code>
+<code>Date: Fri Dec 18 15:06:14 2015 +0800</code>
+<code></code>
+<code>Add your commit message here</code>
+</pre></br>
+<h5>You can easily customize your log output using the following commands.</h5>
+<h4>Using <code>git log -n *integer*</code></h4>
+<h5>With this command, you can specify the number of commits to display.</h5>
+<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git log -n 2</pre>
+<h5>For instance, the above code displays the latest two commits.</h5></br>
+
+
+<h4>Using <code>git log --oneline</code></h4>
+<h5>This command condenses each commit to a single line, just displaying the checksum and commit message.</h5>
+<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git log --oneline</pre></br>
+
+<h4>Using <code>git log -p</code></h4>
+<h5>This command displays the full diff of every commit, providing all details of the project history.</h5>
+<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git log -p</pre>
+
+<h4>Using <code>git log &lt;file&gt;</code></h4>
+<h5>This command displays the commit for the specified file only.</h5>
+<pre data-type="programlisting" data-code-language="console"><code style="color: #009900;">></code> git log text.txt</pre>
+
+</div></br>        
+
+
+    </div>
+  </div>
+
+
+
+</div>
+	<footer role="contentinfo">
+ <div id="footer" class="container">
+<center>
+<ul class="bs-docs-footer-links">
+<li><a href="https://twitter.com/ng_xingyu"> <i class="fa fa-twitter-square fa-3x"></i> </a> <a href="https://facebook.com/xingyu00"><i class="fa fa-facebook-square fa-3x"></i></a><a href="https://www.instagram.com/ngxingyu">  <i class="fa fa-instagram fa-3x"></i></a><a href="https://github.com/ngxingyu/"> <i class="fa fa-github-square fa-3x"></i> </a><a href="https://ngxingyu.github.io/xingyu/xingyu.html"> <i class="fa fa-link fa-3x"></i> </a></li><li><a href="mailto:ng.xingyu@dhs.sg" target="_top">ng.xingyu@dhs.sg</a>
+</ul>	
+ <p>Designed and built by ngxingyu </p> 
+ </br>
+</center>
+ 
+
+
+
+</div>
+</footer>
+</body>
+</html>     
